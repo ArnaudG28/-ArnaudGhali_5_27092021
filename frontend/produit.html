@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<!-- Projet 5 Orinoco OpenClassRooms
+Par Arnaud Ghali
+Version V.2.1 mise en place API et generation page index  -->
+    <head>
+<!-- En-tête de la page -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        
+        <meta name="title" content="Orinoco - ventes en ligne d'appareils photos">
+        <meta name="description" content="Orinoco est un site de ventes en ligne d'appareils photos anciens.">
+        
+        <!-- Référencement langage-->
+        <link rel="alternate" hreflang="fr" href="https://arnaudg28.github.io/ArnaudGhali_5_27092021/"/>
+
+        <!-- feuille de style -->
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
+        <link rel="stylesheet" type="text/css" href="./styles/produit.css">
+
+        <!-- bibliotheque icones -->
+        <script src="https://kit.fontawesome.com/fd4f7fa464.js" crossorigin="anonymous"></script>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+        <!-- Bibliothèques javascript -->
+        <script src="./js/fonctions.js"></script>
+
+        <title>Orinoco - votre produit d'appareil photo en détail</title>
+
+    </head>
+<!-- Body -->
+<body>
+    <!-- Header -->
+    <header class="flex-navigation">
+        <a class="" href="../index.html"><img src="./images/logo.png" 
+            alt="Logo Orinoco" class="logoNavigation"></a>
+        <h1 class="titreNavigation">
+            <a href="../index.html">Appareils photos vintage</a>
+        </h1>
+        <h2 class="panierNavigation">
+             <a class="" href="./panier.html">Mon panier&nbsp;<i class="fas fa-shopping-basket fa-2x"></i></a>
+        </h2>
+    </header>
+        <!-- Fin Header -->
+
+        <!-- Detail Camera -->
+    <section class="flex-detailResultat">
+        <article class="vignetteDetailArticle">
+            <form class="formDetailArticle" id="formDetailArticle" method="post">
+               <div class="imageDetailArticle">
+                <img src="./images/vcam_1.jpg" 
+                alt="Photo appareil ancien" class="imageDetailProprieteArticle">
+               </div>
+               <div class="actionDetailArticle">
+                <div class="prixDetailArticle">
+                  <p class="policePrix"><strong>4999 €</strong>
+                  </p>
+                </div>
+                <div class="descriptionDetailArticle">
+                    <h3 class="policeParagraphe">
+                      <strong>Zurss 50S</strong>
+                    </h3>
+                    <p class="policeParagraphe2">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <div class="modeleArticle">
+                    <label for="listeModele" class="libelleChoixModeleArticle" >Modèle :</label>
+                    <p>
+                      <select name="listeModele" id="listeModele" class="choixModeleArticle">
+                          <option value="" selected>--Choisissez un modèle--</option>
+                          <option value="35mm">35mm 1.4</option>
+                          <option value="50mm">50mm 1.6</option>
+                      </select>
+                    </p>
+                </div>
+                <div class="buttonDetailArticle">
+                    <button class="buttonDetailAjoutArticle" onclick="pagePanier();">
+                        <i class="fas fa-shopping-basket"></i>
+                        Ajouter au panier
+                    </button>
+                </div>
+              </div>
+            </form>
+        </article>
+    </section>
+        <!-- Fin Detail Camera -->
+
+
+<!-- Scripts
+    <script src="./js/index.js"></script> -->
+
+    <!-- Footer --> 
+    <footer class="">  
+        <div class="footer">
+          <div class="footerTableau">
+              <a class="footerLien" href="/">Mentions légales</a>
+              <h3 class="footerTitre"><a href="../index.html" class="policeH3">Orinoco</a></h3>
+                <a class="footerLien" href="mailto:contact@orinoco.com">Contact</a>
+          </div>
+        </div>
+    </footer>   
+            <!-- Fin Footer -->     
+</body>
+</html>
