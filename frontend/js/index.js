@@ -1,7 +1,13 @@
   
  //Variables Globales
-//const url = `https://teddies-api.herokuapp.com/api/cameras`;
-const url = `http://localhost:3000/api/cameras`;
+ //Version V.2.2 ajout dans index.js convertisseur de prix 
+
+ //déclaration des variables de référence constante
+const url = `https://teddies-api.herokuapp.com/api/cameras`;
+//const url ='http://localhost:3000/api/cameras';
+
+ //déclaration des variables locales
+let erreurMsge ='';
 
 
 ListeCameras()
@@ -30,16 +36,26 @@ function getArticles() {
 	})
 	// gestion des erreurs
 	.catch(function(erreur) {
-		alert(erreur);
-  		const erreurMsge = erreur.message;
+		//alert(erreur);
+  		erreurMsge = erreur.message;
   		getError(erreurMsge);
 	})
 }
 
+// convertir le prix de string à number, forrmater des nombres
+function convertisseurPrix(article) {
+	let prix = `${article.price}`;
+	prix = Intl.NumberFormat("fr-FR", {
+		style: "currency",
+		currency: "EUR",
+	}).format(prix /100);
+	return prix;
+  }
 
 
 // fonction pour afficher un article
 function displayArticle(article) {
+	const prix = convertisseurPrix(article);
 	// on rajoute l'article et ses differentes composantes sous forme de variables
 	//document.getElementById('flex-resultat').innerHTML += ` <h1 class="messageErreur">${article._id}</h1>`;
 	// on génére le code html
@@ -60,11 +76,11 @@ function displayArticle(article) {
 			</div>
 	  		<div class="actionArticle">
 				<div class="prixArticle">
-					<p class="policePrix"><strong>${article.price}&nbsp;€</strong>
+					<p class="policePrix"><strong>${prix}</strong>
 					</p>
 				</div>
 				<div class="buttonArticle">
-					<button class="buttonAjoutArticle" onclick="pagePanier();">
+					<button class="buttonAjoutArticle" onclick="pagePanierIndex();">
 						<i class="fas fa-shopping-basket"></i>
 						Ajouter au panier
 					</button>
