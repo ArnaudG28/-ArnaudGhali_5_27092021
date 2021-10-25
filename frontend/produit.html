@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.2 ajout dans index.js convertisseur de prix -->
+Version V.2.3 alimentation de la page produit -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -27,6 +27,7 @@ Version V.2.2 ajout dans index.js convertisseur de prix -->
 
         <!-- Bibliothèques javascript -->
         <script src="./js/fonctions.js"></script>
+        <script src="./js/produit.js" defer></script>
 
         <title>Orinoco - votre produit d'appareil photo en détail</title>
 
@@ -47,23 +48,23 @@ Version V.2.2 ajout dans index.js convertisseur de prix -->
         <!-- Fin Header -->
 
         <!-- Detail Camera -->
-    <section class="flex-detailResultat">
+    <section class="flex-detailResultat" id="flex-resultat">
         <article class="vignetteDetailArticle">
             <form class="formDetailArticle" id="formDetailArticle" method="post">
                <div class="imageDetailArticle">
                 <img src="./images/vcam_1.jpg" 
-                alt="Photo appareil ancien" class="imageDetailProprieteArticle">
+                alt="Photo appareil ancien" class="imageDetailProprieteArticle" id="imageArticle">
                </div>
                <div class="actionDetailArticle">
                 <div class="prixDetailArticle">
-                  <p class="policePrix"><strong>4999 €</strong>
+                  <p class="policePrix" id="prixDetailArticle"><strong>4999 €</strong>
                   </p>
                 </div>
                 <div class="descriptionDetailArticle">
-                    <h3 class="policeParagraphe">
+                    <h3 class="policeParagraphe" id="descriptionNomArticle">
                       <strong>Zurss 50S</strong>
                     </h3>
-                    <p class="policeParagraphe2">
+                    <p class="policeParagraphe2" id="descriptionDetailArticle">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                 </div>

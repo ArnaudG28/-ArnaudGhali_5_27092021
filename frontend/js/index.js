@@ -1,27 +1,26 @@
-  
- //Variables Globales
- //Version V.2.2 ajout dans index.js convertisseur de prix 
-
- //déclaration des variables de référence constante
-const url = `https://teddies-api.herokuapp.com/api/cameras`;
-//const url ='http://localhost:3000/api/cameras';
+  //Version V.2.3 alimentation de la page produit
 
  //déclaration des variables locales
 let erreurMsge ='';
 
-
-ListeCameras()
+ListeCameras();
 
 // fonction asynhcrone, on attendre que la résolution de la promesse passée (Promise) pour reprendre avace les données 
 async function ListeCameras() {
 	// fonctions pour recuperer des articles, on attend que le fetch soit executer pour avoir les artcicles
 	const articles =  await getArticles();
-	// boucle sur le tableau de retour des données pour rajouter à l'article qui sera affiché
-	for (let i = 0; i < articles.length; i++) {
-	const article  = articles [i];
-	displayArticle(article);
+	// on verifie si le tableau a du contenu
+	if(articles.length!=0) {
+		// boucle sur le tableau de retour des données pour rajouter à l'article qui sera affiché
+		for (let i = 0; i < articles.length; i++) {
+		const article  = articles [i];
+		displayArticle(article);
+		}
+	} else {
+		// le tableau est vide
+		erreurMsge = 'Pas de produits disponibles, veuillez réessayer';
+		getError(erreurMsge);
 	}
-
 }
 
   // utilisation promise pour recuperer la liste des articles tableau
@@ -42,27 +41,17 @@ function getArticles() {
 	})
 }
 
-// convertir le prix de string à number, forrmater des nombres
-function convertisseurPrix(article) {
-	let prix = `${article.price}`;
-	prix = Intl.NumberFormat("fr-FR", {
-		style: "currency",
-		currency: "EUR",
-	}).format(prix /100);
-	return prix;
-  }
-
 
 // fonction pour afficher un article
 function displayArticle(article) {
-	const prix = convertisseurPrix(article);
+	const prix = convertisseurPrix(article.price);
 	// on rajoute l'article et ses differentes composantes sous forme de variables
 	//document.getElementById('flex-resultat').innerHTML += ` <h1 class="messageErreur">${article._id}</h1>`;
 	// on génére le code html
 	document.getElementById('flex-resultat').innerHTML += `
 	<article class="vignetteArticle" id="vignetteArticle">
-		<form class="formArticle"  id="${article._id}" method="post">
-			<a href="./frontend/produit.html"  class="imageArticle">
+		<form class="formArticle"  id="${article._id}" action="${url}?id=${article._id}" method="get">
+			<a href="./frontend/produit.html?id=${article._id}"  class="imageArticle">
 				<img src="${article.imageUrl}" 
 				alt="Photo appareil ancien" class="imageProprieteArticle">
 			</a>
