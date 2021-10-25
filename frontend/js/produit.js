@@ -1,4 +1,4 @@
-//Version V.2.3 alimentation de la page produit
+// Version V.2.4 alimentation de la page produit + liste modèle
 
  //déclaration des variables locales
  let erreurMsge ='';
@@ -27,7 +27,6 @@ function getArticleId(articleId) {
 }
 
 
-
  // utilisation promise pour recuperer l'article dans la liste des articles du tableau
 function getArticle(articleId) {
 	//alert(url+'/'+articleId);
@@ -35,10 +34,6 @@ function getArticle(articleId) {
 	.then(function(httpBodyResponse) {
 		return httpBodyResponse.json();
 		})
-	//.then(function(articles) {
-		//console.log(articles);
-		//return articles;
-	//})
 	// gestion des erreurs
 	.catch(function(erreur) {
 		//alert(erreur);
@@ -55,7 +50,16 @@ function displayArticle (article) {
 	document.getElementById("prixDetailArticle").textContent = prix;
 	document.getElementById("descriptionNomArticle").textContent = article.name;
 	document.getElementById("descriptionDetailArticle").textContent = article.description;
-	//document.getElementById("listeModele").textContent = article.description;
+	// test si la liste est vide
+	if (article.lenses.length!=0){
+		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Choisissez un modèle --</option>`;
+		for (let i = 0; i < article.lenses.length; i++) {
+			document.getElementById("listeModele").value = article.lenses [i];
+			document.getElementById("listeModele").innerHTML += `<option value="${article.lenses [i]}">${article.lenses [i]}</option>`;
+			}
+	} else {
+		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Modèle unique --</option>`;
+	}
 }
 
 
@@ -64,13 +68,3 @@ function getError(erreurMsge) {
 	alert(erreurMsge);
 	document.getElementById('flex-resultat').innerHTML += `<h1 class="messageErreur">&nbsp;${erreurMsge}</h1>`;
   }
-
-
-
-//const form = document.getElementById('signup');
-//const name = form.elements['name'];
-//const email = form.elements['email'];
-
-// getting the element's value
-//let fullName = name.value;
-//let emailAddress = email.value;

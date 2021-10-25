@@ -1,4 +1,4 @@
-// Version V.2.3 alimentation de la page produit 
+// Version V.2.4 alimentation de la page produit + liste modèle
  
  //Déclaration des variables de référence constante globales
 const url = `https://teddies-api.herokuapp.com/api/cameras`;
