@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<!-- Projet 5 Orinoco OpenClassRooms
+Par Arnaud Ghali
+Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation -->
+    <head>
+<!-- En-tête de la page -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        
+        <meta name="title" content="Orinoco - ventes en ligne d'appareils photos">
+        <meta name="description" content="Orinoco est un site de ventes en ligne d'appareils photos anciens.">
+        
+        <!-- Référencement langage-->
+        <link rel="alternate" hreflang="fr" href="https://arnaudg28.github.io/ArnaudGhali_5_27092021/"/>
+
+        <!-- feuille de style -->
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
+        <link rel="stylesheet" type="text/css" href="./styles/panier.css">
+
+        <!-- bibliotheque icones -->
+        <script src="https://kit.fontawesome.com/fd4f7fa464.js" crossorigin="anonymous"></script>
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+        <!-- Bibliothèques javascript -->
+        <script src="./js/fonctions.js"></script>
+        <script src="./frontend/js/panier.js"></script>
+        <script src="./js/panier.js" defer></script>
+
+        <title>Orinoco - votre panier de commande</title>
+
+    </head>
+<!-- Body -->
+<body>
+    <!-- Header -->
+    <header class="flex-navigation">
+        <div class="menuNavigation">
+          <a class="logoNavigation" href="../index.html" class="logoNavigation"> Orinoco</a>
+      </div> 
+      <div class="menuNavigation">
+          <h1 class="titreNavigation">
+              <a href="../index.html">Appareils photos vintage</a>
+          </h1>
+        </div> 
+        <div class="menuNavigation">
+        </div> 
+    </header>
+        <!-- Fin Header -->
+
+        <!-- Liste des Cameras -->
+    <section class="flex-panierResultat">
+        <article class="vignetteListePanier">
+            <div class="recapitulatifPanier">
+              <div class="titrerecapitulatifPanier">
+                <h2 class="policeH2">Panier</h2>
+              </div>
+              <div class="nombrePanier">
+                <h2 class="policeH2">(1)</h2>
+              </div>
+            </div>
+            <div class="listePanier" id="listePanier">
+                <div class="imageProduit">
+                    <img src="./images/vcam_1.jpg" 
+                    alt="Photo appareil ancien" class="imageProprieteProduit">
+                </div>
+                <div class="resumeProduit">
+                    <div class="nomProduit">
+                        <p class="policeParagraphe">
+                          <strong>Zurss 50S</strong>
+                        </p>
+                        <p class="policeParagraphe2">
+                          35mm 1.4
+                        </p>
+                    </div>
+                    <div class="prixProduit">
+                      <p class="policePrixPanier"><strong>4999 €</strong></p>
+                      <span class="droite">
+                        <select name="listeNombreProbuit" id="listeNombreProbuit" class="choixNombreProbuit">
+                          <option value="1" selected>1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                      </span>
+                      <p class="buttonSupprimer">
+                        <button class="buttonSupprimerProduit">
+                          Supprimer
+                        </button>
+                      </p>
+                    </div>
+                </div>
+              </div>
+        </article>
+        <!-- Fin Liste des Cameras -->
+        <!-- Recapitulatif commande --> 
+        <article class="vignetteCommande" id="vignetteCommande">
+            <!-- grid item, containing a card -->
+            <div>
+              <div class="recapitulatifCommande">
+                <h2 class="policeH2">Récapitulatif</h2>
+              </div>
+              <div class="titreCommande">
+                <h2 class="policeH2"><span class="texteCommande">Panier</span><span class="texteMediumCommande">(4)</span></h2>
+              </div>
+              <div class="titreFrais">
+                <h2 class="policeH3"><span class="texteCommande">Frais de livraison</span></h2>
+              </div>
+              <div class="titreTotal">
+                <h2 class="policeH2">TOTAL <span class="texteMediumCommande">(tva incluse)</span></h2>
+              </div>
+            </div>
+            <div>
+              <div class="recapitulatifCommande">
+                <h2 class="policeH2">&nbsp;</h2>
+              </div>
+              <div class="titreCommande">
+                <h2 class="policeH2"><span class="texteCommande">4999 €</span></h2>
+              </div>
+              <div class="titreFrais">
+                <h2 class="policeH3"><span class="texteCommande">Gratuit</span></h2>
+              </div>
+              <div class="titreTotal">
+                <h2 class="policeH2"><span>10 000 €</span></h2>
+              </div>
+            </div>
+        </article>
+    </section>
+        <!-- Fin Recapitulatif commande -->
+
+        <!-- Formulaire de commande identification client -->
+        <section class="flex-identCommande">
+          <form class="formIdentCommande" id="formIdentCommande" method="post">
+            <article class="vignetteIdentCommande">
+              <div class="flex-commandeInput flex-commandeInputSpan4">
+                  <h2 class="policeH2">Commander</h2>
+              </div>
+              <div class="flex-commandeInput">
+                <label for="nom" class="policeSaisieCommande">Nom</label>
+                <input type="text" name="nom" id="nom" tabindex="1" required />
+              </div>
+              <div class="flex-commandeInput">
+                <label for="prenom" class="policeSaisieCommande">Prénom</label>
+                <input type="text" name="prenom" id="prenom" tabindex="2" required />
+              </div>
+              <div class="flex-commandeInput flex-commandeInputSpan2">
+                <label for="email" class="policeSaisieCommande">E-mail</label>
+                <input type="text" name="email" id="email" class="input" tabindex="3" placeholder="Ex: 'orinoco@orinoco.com'" required />
+              </div>
+              <div class="flex-commandeInput flex-commandeInputSpan2">
+                <label for="adresse" class="policeSaisieCommande">Adresse</label>
+                <input type="text" name="adresse" id="adresse" class="input" tabindex="4" required />
+              </div>
+              <div class="flex-commandeInput">
+                <label for="zipcode" class="policeSaisieCommande">Code postal</label>
+                <input type="text" name="zipcode" id="zipcode" class="input" tabindex="5" placeholder="Ex: '75000'" required />
+              </div>
+              <div class="flex-commandeInput">
+                <label for="ville" class="policeSaisieCommande">Ville</label>
+                <input type="text" name="ville" id="ville" class="input" tabindex="6" required />
+              </div>
+              <div class="flex-commandeInput flex-commandeInputSpan4">
+                <button class="buttonCommnander" onclick="pageConfirmation();">
+                  <i class="fas fa-credit-card"></i>
+                    Procéder au paiement
+                </button>
+              </div>
+            </article>
+
+          </form>
+        </section> 
+        <!-- Fin Formulaire de commande -->
+
+<!-- Scripts
+    <script src="./js/index.js"></script> -->
+
+    <!-- Footer --> 
+    <footer class="">  
+        <div class="footer">
+          <div class="footerTableau">
+              <a class="footerLien" href="/">Mentions légales</a>
+              <h3 class="footerTitre"><a href="../index.html">Orinoco</a></h3>
+                <a class="footerLien" href="mailto:contact@orinoco.com">Contact</a>
+          </div>
+        </div>
+    </footer>   
+            <!-- Fin Footer -->     
+</body>
+</html>
