@@ -1,8 +1,8 @@
 // Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation
  
  //Déclaration des variables de référence constante globales
-//const url = `https://teddies-api.herokuapp.com/api/cameras`;
-var url ='http://localhost:3000/api/cameras';
+const url = `https://teddies-api.herokuapp.com/api/cameras`;
+//var url ='http://localhost:3000/api/cameras';
 var prix ='';
 
 //Fonctions Globales
