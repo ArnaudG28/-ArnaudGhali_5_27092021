@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation -->
+Version V.2.6 liste panier vidage local storage divers modifications -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -27,8 +27,8 @@ Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre 
 
         <!-- Bibliothèques javascript -->
         <script src="./js/fonctions.js"></script>
-        <script src="./frontend/js/panier.js"></script>
-        <script src="./js/panier.js" defer></script>
+        <script src="./js/panier.js"></script>
+        <script src="./js/listepanier.js" defer></script>
 
         <title>Orinoco - votre panier de commande</title>
 
@@ -50,50 +50,21 @@ Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre 
     </header>
         <!-- Fin Header -->
 
+
+    <section class="flex-panierResultat" id="flex-panierResultat">
         <!-- Liste des Cameras -->
-    <section class="flex-panierResultat">
         <article class="vignetteListePanier">
             <div class="recapitulatifPanier">
               <div class="titrerecapitulatifPanier">
-                <h2 class="policeH2">Panier</h2>
+                  <h2 class="policeH2">Panier</h2>
               </div>
               <div class="nombrePanier">
-                <h2 class="policeH2">(1)</h2>
+                  <h2 class="policeH2">(<span id="nombreNavigation">1</span>)</h2>
               </div>
             </div>
             <div class="listePanier" id="listePanier">
-                <div class="imageProduit">
-                    <img src="./images/vcam_1.jpg" 
-                    alt="Photo appareil ancien" class="imageProprieteProduit">
-                </div>
-                <div class="resumeProduit">
-                    <div class="nomProduit">
-                        <p class="policeParagraphe">
-                          <strong>Zurss 50S</strong>
-                        </p>
-                        <p class="policeParagraphe2">
-                          35mm 1.4
-                        </p>
-                    </div>
-                    <div class="prixProduit">
-                      <p class="policePrixPanier"><strong>4999 €</strong></p>
-                      <span class="droite">
-                        <select name="listeNombreProbuit" id="listeNombreProbuit" class="choixNombreProbuit">
-                          <option value="1" selected>1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                      </span>
-                      <p class="buttonSupprimer">
-                        <button class="buttonSupprimerProduit">
-                          Supprimer
-                        </button>
-                      </p>
-                    </div>
-                </div>
-              </div>
+             <!-- Details produit -->
+            </div>
         </article>
         <!-- Fin Liste des Cameras -->
         <!-- Recapitulatif commande --> 

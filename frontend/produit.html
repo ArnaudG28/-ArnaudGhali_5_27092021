@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation -->
+Version V.2.6 liste panier vidage local storage divers modifications -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -86,7 +86,7 @@ Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre 
                     </p>
                 </div>
                 <div class="buttonDetailArticle">
-                    <button class="buttonDetailAjoutArticle" type="button" id="buttonDetailAjoutArticle" value ="" onclick="ajoutPanier();">
+                    <button class="buttonDetailAjoutArticle" type="button" id="buttonDetailAjoutArticle" value ="" onclick="recupSelected(document.getElementById('listeModele').value);ajoutPanier();">
                         <i class="fas fa-shopping-basket"></i>
                         Ajouter au panier
                     </button>

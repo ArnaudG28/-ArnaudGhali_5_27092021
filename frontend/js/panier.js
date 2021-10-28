@@ -1,4 +1,6 @@
-// Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation
+// Version V.2.6 liste panier vidage local storage divers modifications
+//Variable globale
+var option = "vide";
 
 async function ajoutPanier() {
 
@@ -9,10 +11,9 @@ async function ajoutPanier() {
                 //alert(articleId);
 
                 let idArticlePanier = articleId;
-                let option ="vide";
                 let nombreArticlePanier = 1;
                 // creation d'une variable globale contenant les informations de l'article ou produit choisi
-                const articlePanier = {idArticlePanier,nombreArticlePanier};
+                const articlePanier = {idArticlePanier,option,nombreArticlePanier};
 
                 console.log(articlePanier);
 
@@ -47,4 +48,10 @@ async function ajoutPanier() {
                      var nombreArticleTotalPanier = articleEnregistreLocalStorage.length;
                      document.getElementById('nombreNavigation').innerHTML = `${nombreArticleTotalPanier}`;
         }
+}
+
+// recuperation de l'option choisie
+function recupSelected(choixModele){
+    option=choixModele;
+    //alert(option);
 }

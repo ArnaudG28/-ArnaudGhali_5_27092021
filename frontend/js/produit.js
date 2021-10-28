@@ -1,4 +1,4 @@
-// Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation
+// Version V.2.6 liste panier vidage local storage divers modifications
 
  //déclaration des variables locales
  let erreurMsge ='';
@@ -61,11 +61,13 @@ function displayProduit (produit) {
 	} else {
 		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Modèle unique --</option>`;
 	}
+	// mise à jour du panier
+	nombreArticle();
 }
 
 
 // Récupération de l'erreur pour affichage sur la page
 function getError(erreurMsge) {
-	alert(erreurMsge);
+	//alert(erreurMsge);
 	document.getElementById('flex-resultat').innerHTML += `<h1 class="messageErreur">&nbsp;${erreurMsge}</h1>`;
   }

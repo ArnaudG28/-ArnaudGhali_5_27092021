@@ -1,4 +1,4 @@
-// Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation
+// Version V.2.6 liste panier vidage local storage divers modifications
  
  //Déclaration des variables de référence constante globales
 const url = `https://teddies-api.herokuapp.com/api/cameras`;
@@ -30,6 +30,15 @@ function nombreArticle() {
 	document.getElementById('nombreNavigation').innerHTML = `${nombreArticleTotalPanier}`;
 }
 
+function confirmationRetourAccueil() {
+	window.location.href = '../index.html';
+	// on vide le local storage
+  	// on verifie que la clé article existe si oui on le vide
+  	let articleLocalStorage = JSON.parse(localStorage.getItem("article"));
+		if (articleLocalStorage) {
+			localStorage.removeItem("article");
+		}
+}
 
 function pageConfirmation() {
   window.location.href = './confirmation.html';
