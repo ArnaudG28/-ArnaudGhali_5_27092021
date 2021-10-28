@@ -1,9 +1,9 @@
 /* style commun 
-Version V.2.4 alimentation de la page produit + liste modèle */
+Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation */
 
 /* importation des fonts Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Glory:wght@300&display=swap');
 /*Body généralités polices et fond*/
 html {
     font-family: 'Roboto', sans-serif;
@@ -22,7 +22,6 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    position: relative;
     background-color: #F2F2F2
 }
 
@@ -140,58 +139,85 @@ input::placeholder {
 /* Partie navigation */
 .flex-navigation {
   display: grid;
-  grid-template-columns: 25% 50% 25%;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: 0px;
   width: 100%;
   background-color: #f2e8f0;
+  top:0;
+  margin-bottom: 0;
+  width: 100%;
+  /*position: fixed;*/
 }
-.logoNavigation {
+
+/*--------------------*/
+.menuNavigation {
+  background-color: #f2e8f0;
+  overflow: hidden;
+}
+
+.logoNavigation{
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 50px;
+  margin: 5px;
+  /*justify-self: center;
   width: 60%;
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 25px;
-  justify-self: center;
+  object-fit: cover;*/
+}
+/* Pour les ecrans type portable*/
+@media only screen and (max-width:768px) {
+  .logoNavigation{
+    font-size: 40px;
+  }
+}
+
+/* Style the links inside the navigation bar */
+.menuNavigation  {
+  float: left;
+  color: black;
+  text-align: center;
+ /* padding: 14px 16px;*/
+  text-decoration: none;
+}
+
+.menuNavigation a:hover {
+  color:#f5b027;
 }
 
 .titreNavigation {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  font-family: 'Glory', sans-serif;
   text-align: center;
-}
-
-.panierNavigation {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 0px;
-  width: 100%;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  text-align: center;
-}
-
-.contenuNavigation{
-  display : flex;
-  flex-direction: row;
-  width:100%;
-
+  margin: 5px;
+  padding-top: 14px;
 }
 
 .nombreNavigation {
-  background-color: gray;
-  color: white;
+  background-color: #f5b027;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  padding: 5px 10px;
-  text-align: right;
+  height: 22px;
+  position: absolute;
+  width: 22px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
 }
 
 .iconNavigation {
   color :gray;
+}
+
+.policeNavigation {
+  text-align: center;
+  line-height: 1;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #333;
+  margin: 5px;
 }
 
 /* Footer commun aux pages*/
@@ -206,7 +232,6 @@ input::placeholder {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   align-items: center;
-  padding: 16px 32px;
 }
 
 .footerTableau{
@@ -217,7 +242,6 @@ input::placeholder {
   grid-gap: 5px;
 }
 
-
 .footerTitre {
   display: flex;
   flex-direction: column;
@@ -226,14 +250,19 @@ input::placeholder {
   width: 100%;
   text-align: center;
   justify-content: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 30px;
+  margin: 5px;
 }
 
 .footerLien {
-  display: block;
-  text-align: center;
-  justify-content: center;
+  display: flex;
+  justify-self: center;
+  vertical-align: middle;
+  line-height: 1;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   color: #333;
   margin: 5px;
 }

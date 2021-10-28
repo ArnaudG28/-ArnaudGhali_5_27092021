@@ -1,19 +1,19 @@
-// Version V.2.4 alimentation de la page produit + liste modèle
+// Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation
 
  //déclaration des variables locales
  let erreurMsge ='';
 
 // recuperation de l'id article dans l'url et affichage dans la page produit
-detailArticle ();
+detailProduit();
 
-async function detailArticle () {
-	const articleId = getArticleId();
-	//console.log(articleId);
+async function detailProduit () {
+	const produitId = getProduitId();
+	//console.log(produitId);
 	// test si l'article existe
-	if (articleId!=null && articleId!='') {
-		const article = await getArticle(articleId);
+	if (produitId!=null && produitId!='') {
+		const produit = await getProduit(produitId);
 		//console.log(article);
-		displayArticle(article);
+		displayProduit(produit);
 	} else {
 		// Il y a pas d'article
 		erreurMsge = 'Produit non disponible';
@@ -22,15 +22,15 @@ async function detailArticle () {
 }
 
 // recupretation de l'id dans l'url à partir du lien dans l'imaga de index.htm
-function getArticleId(articleId) {
+function getProduitId(produitId) {
 	return new URL(location.href).searchParams.get("id")
 }
 
 
  // utilisation promise pour recuperer l'article dans la liste des articles du tableau
-function getArticle(articleId) {
+function getProduit(produitId) {
 	//alert(url+'/'+articleId);
-	return fetch(url+'/'+articleId)
+	return fetch(url+'/'+produitId)
 	.then(function(httpBodyResponse) {
 		return httpBodyResponse.json();
 		})
@@ -43,19 +43,20 @@ function getArticle(articleId) {
 }
 
 // Affichage des données de l'article dans la fiche produit
-function displayArticle (article) {
-	const prix = convertisseurPrix(article.price);
-	document.getElementById("formDetailArticle").id = article._id;
-	document.getElementById("imageArticle").src = article.imageUrl;
+function displayProduit (produit) {
+	const prix = convertisseurPrix(produit.price);
+	document.getElementById("formDetailArticle").id = produit._id;
+	document.getElementById("imageArticle").src = produit.imageUrl;
 	document.getElementById("prixDetailArticle").textContent = prix;
-	document.getElementById("descriptionNomArticle").textContent = article.name;
-	document.getElementById("descriptionDetailArticle").textContent = article.description;
+	document.getElementById("descriptionNomArticle").textContent = produit.name;
+	document.getElementById("descriptionDetailArticle").textContent = produit.description;
+	document.getElementById("buttonDetailAjoutArticle").value = produit._id;
 	// test si la liste est vide
-	if (article.lenses.length!=0){
+	if (produit.lenses.length!=0){
 		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Choisissez un modèle --</option>`;
-		for (let i = 0; i < article.lenses.length; i++) {
-			document.getElementById("listeModele").value = article.lenses [i];
-			document.getElementById("listeModele").innerHTML += `<option value="${article.lenses [i]}">${article.lenses [i]}</option>`;
+		for (let i = 0; i < produit.lenses.length; i++) {
+			document.getElementById("listeModele").value = produit.lenses [i];
+			document.getElementById("listeModele").innerHTML += `<option value="${produit.lenses [i]}">${produit.lenses [i]}</option>`;
 			}
 	} else {
 		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Modèle unique --</option>`;

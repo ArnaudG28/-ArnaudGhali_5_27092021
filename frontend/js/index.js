@@ -1,4 +1,4 @@
-  // Version V.2.4 alimentation de la page produit + liste modèle
+// Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation
 
  //déclaration des variables locales
 let erreurMsge ='';
@@ -45,18 +45,22 @@ function getArticles() {
 // fonction pour afficher un article
 function displayArticle(article) {
 	const prix = convertisseurPrix(article.price);
+
+	// on met à jour le nombre d'article dans le panier
+	nombreArticle();
+
 	// on rajoute l'article et ses differentes composantes sous forme de variables
 	//document.getElementById('flex-resultat').innerHTML += ` <h1 class="messageErreur">${article._id}</h1>`;
 	// on génére le code html
 	document.getElementById('flex-resultat').innerHTML += `
 	<article class="vignetteArticle" id="vignetteArticle">
-		<form class="formArticle"  id="${article._id}" action="${url}?id=${article._id}" method="get">
+		<form class="formArticle" name ="article" id="article" action ="">
 			<a href="./frontend/produit.html?id=${article._id}"  class="imageArticle">
 				<img src="${article.imageUrl}" 
 				alt="Photo appareil ancien" class="imageProprieteArticle">
 			</a>
 			<div class="descriptionArticle">
-				<h3 class="policeParagraphe">
+				<h3 class="policeParagraphe" id="nomArticle">
 					<strong>${article.name}</strong>
 				</h3>
 				<p class="policeParagraphe2">
@@ -69,7 +73,7 @@ function displayArticle(article) {
 					</p>
 				</div>
 				<div class="buttonArticle">
-					<button class="buttonAjoutArticle" onclick="pagePanierIndex();">
+					<button type="button" class="buttonAjoutArticle" id="boutonAjoutArticle" value ="${article._id}" onclick="ajoutPanier();">
 						<i class="fas fa-shopping-basket"></i>
 						Ajouter au panier
 					</button>
@@ -78,6 +82,8 @@ function displayArticle(article) {
 		</form>
 	</article>`;
 }
+
+// mise à jour du nom
 
 // Récupération de l'erreur pour affichage sur la page
 function getError(erreurMsge) {

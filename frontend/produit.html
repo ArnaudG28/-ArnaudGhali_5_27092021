@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.4 alimentation de la page produit + liste modèle -->
+Version V.2.5 ajout id au panier local storage, incrémentation icone du nombre et modification visuelle de la navigation -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -27,8 +27,9 @@ Version V.2.4 alimentation de la page produit + liste modèle -->
 
         <!-- Bibliothèques javascript -->
         <script src="./js/fonctions.js"></script>
+        <script src="./js/panier.js"></script>
         <script src="./js/produit.js" defer></script>
-
+        
         <title>Orinoco - votre produit d'appareil photo en détail</title>
 
     </head>
@@ -36,14 +37,23 @@ Version V.2.4 alimentation de la page produit + liste modèle -->
 <body>
     <!-- Header -->
     <header class="flex-navigation">
-        <a class="" href="../index.html"><img src="./images/logo.png" 
-            alt="Logo Orinoco" class="logoNavigation"></a>
-        <h1 class="titreNavigation">
-            <a href="../index.html">Appareils photos vintage</a>
-        </h1>
-        <h2 class="panierNavigation">
-             <a class="" href="./panier.html">Mon panier&nbsp;<i class="fas fa-shopping-basket fa-2x"></i></a>
-        </h2>
+        <div class="menuNavigation">
+            <a class="logoNavigation" href="../index.html" class="logoNavigation"> Orinoco</a>
+        </div> 
+        <div class="menuNavigation">
+            <h1 class="titreNavigation">
+                <a href="../index.html">Appareils photos vintage</a>
+            </h1>
+          </div> 
+          <div class="menuNavigation">
+                <a class="" href="./panier.html">
+                   <h2 class="contenuNavigation">     
+                       <div class=""><i class="fas fa-shopping-basket fa-2x"></i> 
+                       <span class="nombreNavigation" id="nombreNavigation">0</span></div>
+                       <div class="policeNavigation">Mon panier</div>
+                   </h2>   
+                </a>
+          </div> 
     </header>
         <!-- Fin Header -->
 
@@ -76,7 +86,7 @@ Version V.2.4 alimentation de la page produit + liste modèle -->
                     </p>
                 </div>
                 <div class="buttonDetailArticle">
-                    <button class="buttonDetailAjoutArticle" onclick="pagePanier();">
+                    <button class="buttonDetailAjoutArticle" type="button" id="buttonDetailAjoutArticle" value ="" onclick="ajoutPanier();">
                         <i class="fas fa-shopping-basket"></i>
                         Ajouter au panier
                     </button>
@@ -96,7 +106,7 @@ Version V.2.4 alimentation de la page produit + liste modèle -->
         <div class="footer">
           <div class="footerTableau">
               <a class="footerLien" href="/">Mentions légales</a>
-              <h3 class="footerTitre"><a href="../index.html" class="policeH3">Orinoco</a></h3>
+              <h3 class="footerTitre"><a href="../index.html">Orinoco</a></h3>
                 <a class="footerLien" href="mailto:contact@orinoco.com">Contact</a>
           </div>
         </div>
