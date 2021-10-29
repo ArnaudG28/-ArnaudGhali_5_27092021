@@ -1,8 +1,9 @@
-// Version V.2.7 nombre d'articles par article, liste et divers modifications
+// Version V.2.8 divers modifications
 
 const listePanier = [];
 var option ="";
 var nombre = 0;
+var nombreListe = 0;
 var sousTotalPanier = 0;
 var nombreTotalArticle = 0;
 
@@ -120,12 +121,12 @@ function displayArticle(article) {
                         <div class="prixProduit">
                             <p class="policePrixPanier"><strong>${prix}</strong></p>
                             <span class="droite">
-                                <select name="listeNombreProbuit" id="listeNombreProbuit" class="choixNombreProbuit">
-                                <option value="1" selected = "selected">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <select name="listeNombreProbuit" id="listeNombreProbuit${article._id}" class="choixNombreProbuit" onchange="">
+                                    <option value="1" selected="">1</option>
+                                    <option value="2" selected="">2</option>
+                                    <option value="3" selected="">3</option>
+                                    <option value="4" selected="">4</option>
+                                    <option value="5" selected="">5</option>
                                 </select>
                             </span>
                             <p class="buttonSupprimer">
@@ -137,18 +138,31 @@ function displayArticle(article) {
                     </div>
                 </div>`;
 
-        // on selectionne le nombre par article
-            var listeNombreProbuit = document.getElementById("listeNombreProbuit");
-            for (let i = 0; i < listeNombreProbuit.length; i++) {
-                if (listeNombreProbuit.options[i].value == nombre) {
-                    //alert(listeNombreProbuit.options[i].value);
-                    listeNombreProbuit.options[i].selected = "selected";
-                }
-            }
-
+                selectNombreListe (document.getElementById("listeNombreProbuit"+article._id));
 }
 
+function selectNombreListe (listeId) {
+        // on selectionne le nombre par article
+        var listeNombreProbuit = listeId;
 
+        for (let i = 0; i < listeNombreProbuit.options.length; i++) {
+            if (listeNombreProbuit.options[i].value == nombre) {
+                //alert(listeNombreProbuit.options[i].value);
+                //listeNombreProbuit.options[i].selected ='selected';
+                listeNombreProbuit.options[listeNombreProbuit.selectedIndex].value = i;
+                //listeNombreProbuit.options[i] = Option(ds, i, false, true);
+            } 
+            
+        }
+}
+
+// recuperation de l'option choisie
+function recupNombreListeProbuit(nb){
+    nombreListe=int(nb);
+    // mise à jour du nombre d'articles par article
+
+    alert(nombreListe);
+}
 
 // Récupération de l'erreur pour affichage sur la page
 function getError(erreurMsge) {

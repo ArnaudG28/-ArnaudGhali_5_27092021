@@ -1,4 +1,4 @@
-// Version V.2.7 nombre d'articles par article, liste et divers modifications
+// Version V.2.8 divers modifications
 
  //déclaration des variables locales
  let erreurMsge ='';
@@ -53,18 +53,17 @@ function displayProduit (produit) {
 	document.getElementById("buttonDetailAjoutArticle").value = produit._id;
 	// test si la liste est vide
 	if (produit.lenses.length!=0){
-		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Choisissez un modèle --</option>`;
+		//document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Choisissez un modèle --</option>`;
 		for (let i = 0; i < produit.lenses.length; i++) {
 			document.getElementById("listeModele").value = produit.lenses [i];
 			document.getElementById("listeModele").innerHTML += `<option value="${produit.lenses [i]}">${produit.lenses [i]}</option>`;
 			}
 	} else {
-		document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Modèle unique --</option>`;
+		//document.getElementById("listeModele").innerHTML += `<option value="" selected>-- Modèle unique --</option>`;
 	}
 	// mise à jour du panier
 	nombreArticle();
 }
-
 
 // Récupération de l'erreur pour affichage sur la page
 function getError(erreurMsge) {

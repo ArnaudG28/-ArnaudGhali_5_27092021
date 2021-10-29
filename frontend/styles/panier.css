@@ -3,7 +3,7 @@ panier.css pour panier.html
 ---------
 Feuille de style pour le projet 5 Orinoco
 Par Arnaud Ghali
-Version V.2.7 nombre d'articles par article, liste et divers modifications */ 
+Version V.2.8 divers modifications */ 
 
 /* Partie resultat*/
 
@@ -282,6 +282,11 @@ object-fit: cover;
 }
 
 .flex-commandeInputSpan4 {
+  grid-column-start: span 4;
+  grid-column-end: span 4;
+  justify-self: left;
+}
+.flex-commandeInputSpan4Button {
   grid-column-start: span 4;
   grid-column-end: span 4;
   justify-self: right;

@@ -1,4 +1,4 @@
-// Version V.2.7 nombre d'articles par article, liste et divers modifications
+// Version V.2.8 divers modifications
  
  //Déclaration des variables de référence constante globales
 const url = `https://teddies-api.herokuapp.com/api/cameras`;

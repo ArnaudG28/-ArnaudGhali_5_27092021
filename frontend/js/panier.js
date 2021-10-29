@@ -1,15 +1,18 @@
-// Version V.2.7 nombre d'articles par article, liste et divers modifications
+// Version V.2.8 divers modifications
 //Variable globale
 var option = "vide";
+var id ="";
 
 async function ajoutPanier() {
 
-	let articleId = document.activeElement.value;
+    // Gestion option non choisie dans la page produit
 
+        articleId = document.activeElement.value;
+    
         // Verification si l'id est renseigné
         if (articleId!=null && articleId!='') {
                 //alert(articleId);
-
+            
                 let idArticlePanier = articleId;
                 let nombreArticlePanier = 1;
                 // creation d'une variable globale contenant les informations de l'article ou produit choisi
@@ -38,7 +41,7 @@ async function ajoutPanier() {
                                 // on sort on a trouvé l'article
                                 break;
                             }
-                            alert ("Vous ne pouvez pas choisir plus de 5 articles")
+                            alert ("Vous ne pouvez pas rajouter plus de 5 articles du même article")
                             break;
                         }
 
@@ -71,6 +74,7 @@ async function ajoutPanier() {
                      var nombreArticleTotalPanier = articleEnregistreLocalStorage.length;
                      document.getElementById('nombreNavigation').innerHTML = `${nombreArticleTotalPanier}`;
         }
+    
 }
 
 // recuperation de l'option choisie
