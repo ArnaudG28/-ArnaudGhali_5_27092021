@@ -1,1 +1,1 @@
-// Version V.2.6 liste panier vidage local storage divers modifications
+// Version V.2.7 nombre d'articles par article, liste et divers modifications

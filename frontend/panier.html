@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.6 liste panier vidage local storage divers modifications -->
+Version V.2.7 nombre d'articles par article, liste et divers modifications -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -75,7 +75,7 @@ Version V.2.6 liste panier vidage local storage divers modifications -->
                 <h2 class="policeH2">Récapitulatif</h2>
               </div>
               <div class="titreCommande">
-                <h2 class="policeH2"><span class="texteCommande">Panier</span><span class="texteMediumCommande">(4)</span></h2>
+                <h2 class="policeH2"><span class="texteCommande">Panier</span><span class="texteMediumCommande" id="recapitulatifNombrePanier">(0)</span></h2>
               </div>
               <div class="titreFrais">
                 <h2 class="policeH3"><span class="texteCommande">Frais de livraison</span></h2>
@@ -89,13 +89,13 @@ Version V.2.6 liste panier vidage local storage divers modifications -->
                 <h2 class="policeH2">&nbsp;</h2>
               </div>
               <div class="titreCommande">
-                <h2 class="policeH2"><span class="texteCommande">4999 €</span></h2>
+                <h2 class="policeH2"><span class="texteCommande" id="sousTotalPanier">0 €</span></h2>
               </div>
               <div class="titreFrais">
                 <h2 class="policeH3"><span class="texteCommande">Gratuit</span></h2>
               </div>
               <div class="titreTotal">
-                <h2 class="policeH2"><span>10 000 €</span></h2>
+                <h2 class="policeH2"><span id="totalPanier">0 €</span></h2>
               </div>
             </div>
         </article>

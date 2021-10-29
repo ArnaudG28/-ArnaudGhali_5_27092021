@@ -1,7 +1,11 @@
-// Version V.2.6 liste panier vidage local storage divers modifications
+// Version V.2.7 nombre d'articles par article, liste et divers modifications
 
 const listePanier = [];
 var option ="";
+var nombre = 0;
+var sousTotalPanier = 0;
+var nombreTotalArticle = 0;
+
 
 recupPanier();
 // On recupère la liste du panier du local storage
@@ -20,10 +24,11 @@ async function recupPanier() {
             // on recurpere l'Id de l'article
             let articleId = articleEnregistreLocalStorage [i].idArticlePanier;
             option = articleEnregistreLocalStorage [i].option;
+            nombre = articleEnregistreLocalStorage [i].nombreArticlePanier;
 
             console.log(articleId);
             console.log(option);
-
+            console.log(nombre);
 
             // test si l'article existe Id est présent dans le tableau
             if (articleId!=null && articleId!='') {
@@ -39,15 +44,26 @@ async function recupPanier() {
 
                 // on affiche l'article
                 displayArticle(article);
+
+
             } else {
                 // Il y a pas d'article
                 erreurMsge = 'Produit non disponible';
                 getError(erreurMsge);
             }
         }
+        // on met à jour le nombre d'articles total
+        document.getElementById('recapitulatifNombrePanier').innerHTML = `${nombreTotalArticle}`; 
+
+        // on affiche le sous-total
+        sousTotalPanier = convertisseurPrix(sousTotalPanier) ;
+        document.getElementById('sousTotalPanier').innerHTML = `${sousTotalPanier}`; 
+        document.getElementById('totalPanier').innerHTML = `${sousTotalPanier}`; 
 
     } else {
         erreurMsge = "Le panier est vide";
+        document.getElementById('nombreNavigation').innerHTML = `0`;
+        sousTotalPanier = 0;
         getError(erreurMsge);
     }
 
@@ -77,6 +93,13 @@ function displayArticle(article) {
     // mise à jour du panier
     nombreArticle();
 
+    //alert(sousTotalPanier);
+    // calcul du total du panier
+    if(prix != null && prix !="") {
+        sousTotalPanier = sousTotalPanier + (Number(article.price) * nombre);
+        nombreTotalArticle = nombreTotalArticle + nombre;
+    }
+
 	// on rajoute l'article et ses differentes composantes sous forme de variables
 	// on génére le code html
 	document.getElementById('listePanier').innerHTML += `
@@ -98,7 +121,7 @@ function displayArticle(article) {
                             <p class="policePrixPanier"><strong>${prix}</strong></p>
                             <span class="droite">
                                 <select name="listeNombreProbuit" id="listeNombreProbuit" class="choixNombreProbuit">
-                                <option value="1" selected>1</option>
+                                <option value="1" selected = "selected">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -106,17 +129,29 @@ function displayArticle(article) {
                                 </select>
                             </span>
                             <p class="buttonSupprimer">
-                                <button class="buttonSupprimerProduit">
+                                <button type="button" class="buttonSupprimerProduit">
                                 Supprimer
                                 </button>
                             </p>
                         </div>
                     </div>
                 </div>`;
+
+        // on selectionne le nombre par article
+            var listeNombreProbuit = document.getElementById("listeNombreProbuit");
+            for (let i = 0; i < listeNombreProbuit.length; i++) {
+                if (listeNombreProbuit.options[i].value == nombre) {
+                    //alert(listeNombreProbuit.options[i].value);
+                    listeNombreProbuit.options[i].selected = "selected";
+                }
+            }
+
 }
+
+
 
 // Récupération de l'erreur pour affichage sur la page
 function getError(erreurMsge) {
 	//alert(erreurMsge);
-	document.getElementById('flex-panierResultat').innerHTML += `<h1 class="messageErreur">&nbsp;${erreurMsge}</h1>`;
+	document.getElementById('listePanier').innerHTML += `<h1 class="messageErreur">&nbsp;${erreurMsge}</h1>`;
   }

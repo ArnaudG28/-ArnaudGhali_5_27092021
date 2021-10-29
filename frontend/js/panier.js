@@ -1,4 +1,4 @@
-// Version V.2.6 liste panier vidage local storage divers modifications
+// Version V.2.7 nombre d'articles par article, liste et divers modifications
 //Variable globale
 var option = "vide";
 
@@ -23,13 +23,36 @@ async function ajoutPanier() {
                 console.log(articleEnregistreLocalStorage);
 
                 // On vérifie si la clé existe déjà dans le local storage, soit true , soit false
+                
                 if (articleEnregistreLocalStorage) {
-                    // stocke des données de ma variable contenant les donnees
-                    articleEnregistreLocalStorage.push(articlePanier);
-                    
+                    let articleExiste = false;
+                    // On verifie si l'id de l'article existe déjà sinon on met à jour le nombre d'article
+                    for (let i = 0; i < articleEnregistreLocalStorage.length; i++) { 
+                        if (articleEnregistreLocalStorage[i].idArticlePanier === idArticlePanier && option == "vide") {
+                            // l'article existe on met à jour le nombre
+                            articleExiste = true;
+                            // on teste le nombre d'articles par article , blocage à 5
+                            if (articleEnregistreLocalStorage[i].nombreArticlePanier < 5) {
+
+                                articleEnregistreLocalStorage[i].nombreArticlePanier = articleEnregistreLocalStorage[i].nombreArticlePanier + nombreArticlePanier;
+                                // on sort on a trouvé l'article
+                                break;
+                            }
+                            alert ("Vous ne pouvez pas choisir plus de 5 articles")
+                            break;
+                        }
+
+                    }    
+
+                    // on met à jour le local storage si l'article n'existe pas
+                    if (articleExiste == false) {
+                        // stocke des données de ma variable contenant les donnees
+                        articleEnregistreLocalStorage.push(articlePanier);
+                    } 
+
                     // on envoi le tout dans le local storage
                     localStorage.setItem("article",JSON.stringify(articleEnregistreLocalStorage));
-                    
+                                                
                     console.log(articleEnregistreLocalStorage);
                     
                 } else {
