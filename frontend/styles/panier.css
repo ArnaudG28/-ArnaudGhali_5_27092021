@@ -136,8 +136,13 @@ object-fit: cover;
 }
 
 .choixNombreProbuit{
+  float : right;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin: 5px;
   /*display: block;*/
-  width : 80%;
+ /* width : 80%;
   height: 32px;
   justify-content: right;
   font-size: 16px;
@@ -150,7 +155,7 @@ object-fit: cover;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -o-border-radius: 5px;*/
 }
 
 
@@ -170,6 +175,7 @@ object-fit: cover;
   line-height:30px;
   text-align: center;
   background-color: unset;
+  cursor: pointer;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;

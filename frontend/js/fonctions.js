@@ -1,4 +1,4 @@
-// Version V.2.8 divers modifications
+// Version V.2.9 suppression, divers modifications
  
  //Déclaration des variables de référence constante globales
 const url = `https://teddies-api.herokuapp.com/api/cameras`;
@@ -25,7 +25,12 @@ function nombreArticle() {
 	const articleEnPanierStocke = JSON.parse(localStorage.getItem("article"));
 	if (articleEnPanierStocke) {
         // mise à jour du nombre d'article dans le panier
-		var nombreArticleTotalPanier = articleEnPanierStocke.length;	
+		for (let i = 0; i < articleEnPanierStocke.length; i++) {
+			// voir pour le calculc total
+			nombreArticleTotalPanier = articleEnPanierStocke [i].nombreArticlePanier + nombreArticleTotalPanier;       
+        }
+
+			
 	} 
 	document.getElementById('nombreNavigation').innerHTML = `${nombreArticleTotalPanier}`;
 }

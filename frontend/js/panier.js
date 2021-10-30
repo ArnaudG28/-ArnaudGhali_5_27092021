@@ -1,4 +1,4 @@
-// Version V.2.8 divers modifications
+// Version V.2.9 suppression, divers modifications
 //Variable globale
 var option = "vide";
 var id ="";
@@ -71,8 +71,10 @@ async function ajoutPanier() {
                 }
 
                 // mise à jour du nombre d'article dans le panier
-                     var nombreArticleTotalPanier = articleEnregistreLocalStorage.length;
-                     document.getElementById('nombreNavigation').innerHTML = `${nombreArticleTotalPanier}`;
+                nombreArticle();
+                    // var nombreArticleTotalPanier = articleEnregistreLocalStorage.length;
+                     //document.getElementById('nombreNavigation').innerHTML = `${nombreArticleTotalPanier}`;
+                     
         }
     
 }

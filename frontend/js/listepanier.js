@@ -1,4 +1,4 @@
-// Version V.2.8 divers modifications
+// Version V.2.9 suppression, divers modifications
 
 const listePanier = [];
 var option ="";
@@ -54,7 +54,7 @@ async function recupPanier() {
             }
         }
         // on met à jour le nombre d'articles total
-        document.getElementById('recapitulatifNombrePanier').innerHTML = `${nombreTotalArticle}`; 
+        document.getElementById('recapitulatifNombrePanier').innerHTML = `(${nombreTotalArticle})`; 
 
         // on affiche le sous-total
         sousTotalPanier = convertisseurPrix(sousTotalPanier) ;
@@ -95,7 +95,7 @@ function displayArticle(article) {
     nombreArticle();
 
     //alert(sousTotalPanier);
-    // calcul du total du panier
+    // calcul du total du panier et du nombre
     if(prix != null && prix !="") {
         sousTotalPanier = sousTotalPanier + (Number(article.price) * nombre);
         nombreTotalArticle = nombreTotalArticle + nombre;
@@ -120,17 +120,9 @@ function displayArticle(article) {
                         </div>
                         <div class="prixProduit">
                             <p class="policePrixPanier"><strong>${prix}</strong></p>
-                            <span class="droite">
-                                <select name="listeNombreProbuit" id="listeNombreProbuit${article._id}" class="choixNombreProbuit" onchange="">
-                                    <option value="1" selected="">1</option>
-                                    <option value="2" selected="">2</option>
-                                    <option value="3" selected="">3</option>
-                                    <option value="4" selected="">4</option>
-                                    <option value="5" selected="">5</option>
-                                </select>
-                            </span>
+                            <span class="choixNombreProbuit" id="choixNombreProbuit">${nombre}</span>
                             <p class="buttonSupprimer">
-                                <button type="button" class="buttonSupprimerProduit">
+                                <button type="button" class="buttonSupprimerProduit" id="${article._id}" onClick="retirerArticle('${article._id}');">
                                 Supprimer
                                 </button>
                             </p>
@@ -138,31 +130,55 @@ function displayArticle(article) {
                     </div>
                 </div>`;
 
-                selectNombreListe (document.getElementById("listeNombreProbuit"+article._id));
+                //selectNombreListe (document.getElementById("listeNombreProbuit"+article._id));
 }
 
-function selectNombreListe (listeId) {
-        // on selectionne le nombre par article
-        var listeNombreProbuit = listeId;
+function retirerArticle(Id) {
+    // decalaration de la variable globale
+    let articleEnregistreLocalStorage = JSON.parse(localStorage.getItem("article"));
+    let articleId = Id;
+    // test si l'article existe Id 
+    if (articleId!=null && articleId!='') {
+           // controle si le panier est vide
+        if (articleEnregistreLocalStorage != null && articleEnregistreLocalStorage.length != 0 ) {
+            // boucle sur le tableau de retour des données pour trouver à l'article qui sera supprimé
+		    for (let i = 0; i < articleEnregistreLocalStorage.length; i++) {
+                if (articleId == articleEnregistreLocalStorage [i].idArticlePanier) {
+                    nombre = articleEnregistreLocalStorage [i].nombreArticlePanier;
+                    if (nombre > 0){
+                        nombre = nombre-1;
 
-        for (let i = 0; i < listeNombreProbuit.options.length; i++) {
-            if (listeNombreProbuit.options[i].value == nombre) {
-                //alert(listeNombreProbuit.options[i].value);
-                //listeNombreProbuit.options[i].selected ='selected';
-                listeNombreProbuit.options[listeNombreProbuit.selectedIndex].value = i;
-                //listeNombreProbuit.options[i] = Option(ds, i, false, true);
-            } 
-            
+                        // si nombre == 0 on retire l'artcile du panier
+                        if (nombre == 0) {
+                            articleEnregistreLocalStorage.splice(i,1);
+                            localStorage.setItem("article",JSON.stringify(articleEnregistreLocalStorage));
+                            // on recharge la page
+                            window.location.reload();
+                            break;
+                        } else {
+                            //sinon on met à jour
+                            articleEnregistreLocalStorage[i].nombreArticlePanier = nombre;
+                            localStorage.setItem("article",JSON.stringify(articleEnregistreLocalStorage));
+                            // on recharge la page
+                            window.location.reload();
+                            break;
+                        }
+
+                    } else {
+                        // on recharge la page
+                        window.location.reload();
+                        break;
+                    }
+                }
+
+            }
+        } else {
+            erreurMsge = "Votre panier est vide";
+            getError(erreurMsge) ;
         }
+    }
 }
 
-// recuperation de l'option choisie
-function recupNombreListeProbuit(nb){
-    nombreListe=int(nb);
-    // mise à jour du nombre d'articles par article
-
-    alert(nombreListe);
-}
 
 // Récupération de l'erreur pour affichage sur la page
 function getError(erreurMsge) {
