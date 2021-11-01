@@ -1,4 +1,4 @@
-// Version V.2.9 suppression, divers modifications
+// Version V.2.10 POST et confirmation de commande 
 //Variable globale
 var option = "vide";
 var id ="";
@@ -31,7 +31,7 @@ async function ajoutPanier() {
                     let articleExiste = false;
                     // On verifie si l'id de l'article existe déjà sinon on met à jour le nombre d'article
                     for (let i = 0; i < articleEnregistreLocalStorage.length; i++) { 
-                        if (articleEnregistreLocalStorage[i].idArticlePanier === idArticlePanier && option == "vide") {
+                        if (articleEnregistreLocalStorage[i].idArticlePanier === idArticlePanier) {
                             // l'article existe on met à jour le nombre
                             articleExiste = true;
                             // on teste le nombre d'articles par article , blocage à 5

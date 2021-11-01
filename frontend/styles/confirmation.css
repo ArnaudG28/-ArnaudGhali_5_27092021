@@ -3,7 +3,9 @@ confirmation.css pour confirmation.html
 ---------
 Feuille de style pour le projet 5 Orinoco
 Par Arnaud Ghali
-Version V.2.8 divers modifications */ 
+Version V.2.10 POST et confirmation de commande */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Glory:wght@300&display=swap');
 
 /* Partie resultat*/
 
@@ -38,6 +40,28 @@ Version V.2.8 divers modifications */
   text-align: center;
 }
 
+/* Données commande  affichées */
+
+.nomPrenomCommande {
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 28px;
+  margin: 5px;
+}
+
+.idCommande{
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 28px;
+  margin: 5px;
+}
+
+.emailCommande {
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 24px;
+  margin: 5px;
+}
 
 /* Bouton Commander */
 

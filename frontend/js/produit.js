@@ -1,4 +1,4 @@
-// Version V.2.9 suppression, divers modifications
+// Version V.2.10 POST et confirmation de commande
 
  //déclaration des variables locales
  let erreurMsge ='';

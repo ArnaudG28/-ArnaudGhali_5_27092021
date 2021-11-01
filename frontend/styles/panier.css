@@ -3,7 +3,7 @@ panier.css pour panier.html
 ---------
 Feuille de style pour le projet 5 Orinoco
 Par Arnaud Ghali
-Version V.2.8 divers modifications */ 
+Version V.2.10 POST et confirmation de commande */ 
 
 /* Partie resultat*/
 
@@ -300,6 +300,19 @@ object-fit: cover;
 
 .labelCommandeInput{
   display: block;
+}
+
+/* controle des input */
+input.controle {
+  outline:0;
+}	 
+
+input.controle:valid {
+  border:3px solid blue;
+  //  border:3px solid #0a0;
+}
+input.controle:invalid {
+  border:3px solid #a00;
 }
 
 

@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.9 suppression, divers modifications -->
+Version V.2.10 POST et confirmation de commande -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -28,7 +28,9 @@ Version V.2.9 suppression, divers modifications -->
         <!-- Bibliothèques javascript -->
         <script src="./js/fonctions.js"></script>
         <script src="./js/panier.js"></script>
+        <script src="./js/formulaire.js"></script>
         <script src="./js/listepanier.js" defer></script>
+
 
         <title>Orinoco - votre panier de commande</title>
 
@@ -75,7 +77,7 @@ Version V.2.9 suppression, divers modifications -->
                 <h2 class="policeH2">Récapitulatif</h2>
               </div>
               <div class="titreCommande">
-                <h2 class="policeH2"><span class="texteCommande">Panier</span><span class="texteMediumCommande" id="recapitulatifNombrePanier">(0)</span></h2>
+                <h2 class="policeH2"><span class="texteCommande">Panier</span>(<span class="texteMediumCommande" id="recapitulatifNombrePanier">0</span>)</h2>
               </div>
               <div class="titreFrais">
                 <h2 class="policeH3"><span class="texteCommande">Frais de livraison</span></h2>
@@ -111,30 +113,30 @@ Version V.2.9 suppression, divers modifications -->
               </div>
               <div class="flex-commandeInput">
                 <label for="nom" class="policeSaisieCommande">Nom</label>
-                <input type="text" name="nom" id="nom" tabindex="1" required />
+                <input type="text" name="nom" id="nom" class="controle" tabindex="1" required>
               </div>
               <div class="flex-commandeInput">
                 <label for="prenom" class="policeSaisieCommande">Prénom</label>
-                <input type="text" name="prenom" id="prenom" tabindex="2" required />
+                <input type="text" name="prenom" id="prenom" class="controle" tabindex="2" required>
               </div>
               <div class="flex-commandeInput flex-commandeInputSpan2">
                 <label for="email" class="policeSaisieCommande">E-mail</label>
-                <input type="text" name="email" id="email" class="input" tabindex="3" placeholder="Ex: 'orinoco@orinoco.com'" required />
+                <input type="email" name="email" id="email" class="controle" tabindex="3" placeholder="Ex: 'orinoco@orinoco.com'" required>
               </div>
               <div class="flex-commandeInput flex-commandeInputSpan2">
                 <label for="adresse" class="policeSaisieCommande">Adresse</label>
-                <input type="text" name="adresse" id="adresse" class="input" tabindex="4" required />
+                <input type="text" name="adresse" id="adresse" class="controle" tabindex="4" required>
               </div>
               <div class="flex-commandeInput">
                 <label for="zipcode" class="policeSaisieCommande">Code postal</label>
-                <input type="text" name="zipcode" id="zipcode" class="input" tabindex="5" placeholder="Ex: '75000'" required />
+                <input type="text" name="zipcode" id="zipcode" class="controle" tabindex="5" placeholder="Ex: '75000'" required>
               </div>
               <div class="flex-commandeInput">
                 <label for="ville" class="policeSaisieCommande">Ville</label>
-                <input type="text" name="ville" id="ville" class="input" tabindex="6" required />
+                <input type="text" name="ville" id="ville" class="controle" tabindex="6" required>
               </div>
               <div class="flex-commandeInput flex-commandeInputSpan4Button">
-                <button class="buttonCommnander" type="button" onclick="pageConfirmation();">
+                <button class="buttonCommnander" type="button" onclick="commanderPayer(document.getElementById('recapitulatifNombrePanier').textContent);">
                   <i class="fas fa-credit-card"></i>
                     Procéder au paiement
                 </button>

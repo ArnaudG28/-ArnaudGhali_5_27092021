@@ -1,4 +1,4 @@
-// Version V.2.9 suppression, divers modifications
+// Version V.2.10 POST et confirmation de commande 
  
  //Déclaration des variables de référence constante globales
 const url = `https://teddies-api.herokuapp.com/api/cameras`;
@@ -39,15 +39,6 @@ function confirmationRetourAccueil() {
 	window.location.href = '../index.html';
 }
 
-function pageConfirmation() {
-	// on vide le local storage
-  	// on verifie que la clé article existe si oui on le vide
-	let articleLocalStorage = JSON.parse(localStorage.getItem("article"));
-		if (articleLocalStorage) {
-			localStorage.removeItem("article");
-		}
-  window.location.href = './confirmation.html';
-}
 
 function pagePanierIndex() {
     window.location.href ='./frontend/panier.html';

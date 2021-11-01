@@ -1,4 +1,4 @@
-// Version V.2.9 suppression, divers modifications
+// Version V.2.10 POST et confirmation de commande
 
 const listePanier = [];
 var option ="";
@@ -55,6 +55,7 @@ async function recupPanier() {
         }
         // on met à jour le nombre d'articles total
         document.getElementById('recapitulatifNombrePanier').innerHTML = `(${nombreTotalArticle})`; 
+        document.getElementById('recapitulatifNombrePanier').textContent = nombreTotalArticle; 
 
         // on affiche le sous-total
         sousTotalPanier = convertisseurPrix(sousTotalPanier) ;
@@ -150,6 +151,7 @@ function retirerArticle(Id) {
 
                         // si nombre == 0 on retire l'artcile du panier
                         if (nombre == 0) {
+                            // on modifie le contenu d'un tableau en retirant l'élément 
                             articleEnregistreLocalStorage.splice(i,1);
                             localStorage.setItem("article",JSON.stringify(articleEnregistreLocalStorage));
                             // on recharge la page

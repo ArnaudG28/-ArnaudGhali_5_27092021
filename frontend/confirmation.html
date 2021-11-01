@@ -2,7 +2,7 @@
 <html lang="fr">
 <!-- Projet 5 Orinoco OpenClassRooms
 Par Arnaud Ghali
-Version V.2.9 suppression, divers modifications -->
+Version V.2.10 POST et confirmation de commande -->
     <head>
 <!-- En-tête de la page -->
         <meta charset="utf-8" />
@@ -37,11 +37,11 @@ Version V.2.9 suppression, divers modifications -->
     <!-- Header -->
     <header class="flex-navigation">
         <div class="menuNavigation">
-            <a class="logoNavigation" href="./index.html" class="logoNavigation"> Orinoco</a>
+            <a class="logoNavigation" href="../index.html" class="logoNavigation"> Orinoco</a>
         </div> 
         <div class="menuNavigation">
             <h1 class="titreNavigation">
-                <a href="./index.html">Appareils photos vintage</a>
+                <a href="../index.html">Appareils photos vintage</a>
             </h1>
           </div> 
           <div class="menuNavigation">
@@ -53,9 +53,14 @@ Version V.2.9 suppression, divers modifications -->
     <section class="flex-confirmationCommande">
         <!-- Message confirmation commande --> 
         <article class="vignetteConfirmationCommande" id="vignetteConfirmationCommande">
-            <!-- grid item, containing a card -->
               <div class="">
-                <h2 class="policeH2">Félicitation, votre commande a bien été prise en compte</h2>
+                <h2 class="policeH2">Merci, <span class="nomPrenomCommande" id="nomCommande">Oro</span><span class="nomPrenomCommande" id="prenomCommande">nico</span></h2>
+              </div>
+              <div class="">
+                <h2 class="policeH2">Votre commande N° <span class ="idCommande" id="idCommande">XXXXXX</span> a bien été prise en compte</h2>
+              </div>
+              <div class="">
+                <h2 class="policeH3">Un email de confirmation est envoyé à l'adresse : <span class ="emailCommande" id="emailCommande">email@orinico.fr</span></h2>
               </div>
               <div class="">
                 <button class="buttonRetourAccueil" onclick="confirmationRetourAccueil();">
