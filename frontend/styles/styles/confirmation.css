@@ -1,0 +1,118 @@
+/*
+confirmation.css pour confirmation.html
+---------
+Feuille de style pour le projet 5 Orinoco
+Par Arnaud Ghali
+Version V.2.10 POST et confirmation de commande */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Glory:wght@300&display=swap');
+
+/* Partie resultat*/
+
+/* enveloppe confirmation commande */
+.flex-confirmationCommande{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  align-content: center;
+  margin: 0;
+  background-color:#F2F2F2;
+}
+
+/* Grid Confirmation commande*/
+.vignetteConfirmationCommande { 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 5px;
+  width: 100%;
+  background-color:#f2e8f0;
+  border-radius: 5px;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  text-align: center;
+}
+
+/* Données commande  affichées */
+
+.nomPrenomCommande {
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 28px;
+  margin: 5px;
+}
+
+.idCommande{
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 28px;
+  margin: 5px;
+}
+
+.emailCommande {
+  font-family: 'Gloria Hallelujah', cursive;
+  color:black;
+  font-size: 24px;
+  margin: 5px;
+}
+
+/* Bouton Commander */
+
+.buttonRetourAccueil {
+  background-color:rgb(187, 184, 184);
+  width: 30%;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid transparent;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  line-height:30px;
+  margin: 0;
+  vertical-align: middle;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  align-self: center;
+  border: 1px solid transparent;
+}
+
+/* animation sur les boutons - au survol */
+.buttonRetourAccueil:hover {
+      top: -2px;
+      box-shadow: 4px 4px 6px #000;
+      background-color:rgb(187, 184, 184);
+    }
+
+
+/*Definition pour les responsives */
+/* Pour les ecrans type portable*/
+@media only screen and (max-width:768px) {
+  .buttonRetourAccueil {
+    width: 50%;
+  }
+}
+
+
+
+/* Pour les ecrans type tablette */
+@media (min-width: 769px) and (max-width:991px) {
+
+}
+
+ /* Pour les ecrans type desktop */
+ @media only screen and (min-width: 992px) {
+
+ }
+
