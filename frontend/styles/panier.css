@@ -3,7 +3,7 @@ panier.css pour panier.html
 ---------
 Feuille de style pour le projet 5 Orinoco
 Par Arnaud Ghali
-Version V.2.12 correction responsive */ 
+Version V.2.13 correction responsive */ 
 
 /* Partie resultat*/
 
@@ -392,6 +392,10 @@ input.controle:invalid {
     margin-top: 5px;
   }
 
+  .flex-commandeInput {
+    grid-column-start: span 4 ;
+    grid-column-end: span 4;
+  }
   .flex-commandeInputSpan2 {
     grid-column-start: span 4 ;
     grid-column-end: span 4;

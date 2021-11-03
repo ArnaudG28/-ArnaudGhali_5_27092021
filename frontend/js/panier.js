@@ -1,4 +1,5 @@
-// Version V.2.10 POST et confirmation de commande 
+// Version V.2.13 correction responsive
+
 //Variable globale
 var option = "vide";
 var id ="";

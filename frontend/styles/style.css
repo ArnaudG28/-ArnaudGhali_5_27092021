@@ -1,5 +1,5 @@
 /* style commun 
-Version V.2.11 correction responsive */
+Version V.2.13 correction responsive */
 
 /* importation des fonts Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -169,14 +169,7 @@ input::placeholder {
   padding-left: 25px;
   object-fit: cover;*/
 }
-/* Pour les ecrans type portable*/
-@media only screen and (max-width:768px) {
-  .logoNavigation{
-    font-size: 40px;
-  }
-}
 
-/* Style the links inside the navigation bar */
 .menuNavigation  {
   float: left;
   color: black;
@@ -219,6 +212,33 @@ input::placeholder {
   font-size: 15px;
   color: #333;
   margin: 5px;
+}
+
+/* Pour les ecrans type portable*/
+@media only screen and (max-width:768px) {
+
+  .flex-navigation {
+    grid-template-columns: 1fr ;
+  }
+
+  .logoNavigation{
+    font-size: 35px;
+  }
+
+  .nombreNavigation{
+    margin-left:-50px;
+  }
+
+
+  .contenuNavigation {
+    text-align: right;
+  }
+
+  .policeNavigation {
+    text-align: right;
+  
+  }
+
 }
 
 /* Footer commun aux pages*/
