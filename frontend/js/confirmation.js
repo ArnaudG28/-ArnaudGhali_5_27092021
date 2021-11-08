@@ -1,4 +1,4 @@
-// Version V.2.13 correction responsive
+// Version V.2.14 correction W3C
 
 var IdCommande = "";
 

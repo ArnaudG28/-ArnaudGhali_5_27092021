@@ -1,4 +1,4 @@
-// Version V.2.13 correction responsive 
+// Version V.2.14 correction W3C
  
  //Déclaration des variables de référence constante globales
 const url = `https://teddies-api.herokuapp.com/api/cameras`;
