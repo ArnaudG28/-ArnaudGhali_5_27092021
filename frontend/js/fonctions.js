@@ -1,7 +1,7 @@
-// Version V.2.15 correction W3C
+// Version V.3 Version finale
  
  //Déclaration des variables de référence constante globales
-const url = `https://teddies-api.herokuapp.com/api/cameras`;
+const url = `https://oc-orinoco-projet5.herokuapp.com/api/cameras`;
 //var url ='http://localhost:3000/api/cameras';
 var prix ='';
 

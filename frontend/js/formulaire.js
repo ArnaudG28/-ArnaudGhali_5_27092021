@@ -1,4 +1,4 @@
-// Version V.2.15 correction W3C
+// Version V.3 Version finale
 
 
 // Gestion du formulaire
@@ -66,7 +66,7 @@ function commanderPayer(nombreArticles) {
                 
                 // on appel l'API avec Fetch et on envois les données avec la methode POST 
 
-                    fetch("https://teddies-api.herokuapp.com/api/cameras/order",myInit)
+                    fetch("https://oc-orinoco-projet5.herokuapp.com/api/cameras/order",myInit)
                     .then(function(httpBodyResponse) { 
                         return httpBodyResponse.json();
                         })

@@ -1,4 +1,4 @@
-// Version V.2.15 correction W3C
+// Version V.3 Version finale
 
 //Variable globale
 var option = "vide";
