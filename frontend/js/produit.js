@@ -1,4 +1,4 @@
-// Version V.3 Version finale
+// Version V.4.1 Version finale - Correction suite à soutenance
 
  //déclaration des variables locales
  let erreurMsge ='';
@@ -21,7 +21,7 @@ async function detailProduit () {
 	}
 }
 
-// recupretation de l'id dans l'url à partir du lien dans l'imaga de index.htm
+// recupertation de l'id dans l'url à partir du lien dans l'imaga de index.htm
 function getProduitId(produitId) {
 	return new URL(location.href).searchParams.get("id")
 }

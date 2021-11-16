@@ -1,11 +1,11 @@
-// Version V.3 Version finale
+// Version V.4.1 Version finale - Correction suite à soutenance
 
  //déclaration des variables locales
 let erreurMsge ='';
 
 ListeCameras();
 
-// fonction asynhcrone, on attendre que la résolution de la promesse passée (Promise) pour reprendre avace les données 
+// fonction asynhcrone, on attend que la résolution de la promesse passée (Promise) pour reprendre avec les données 
 async function ListeCameras() {
 	// fonctions pour recuperer des articles, on attend que le fetch soit executer pour avoir les artcicles
 	const articles =  await getArticles();
@@ -46,6 +46,19 @@ function getArticles() {
 function displayArticle(article) {
 	const prix = convertisseurPrix(article.price);
 
+
+	// on teste la liste des options et on rempli par defaut
+	var option = "vide";
+	
+	if (article.lenses.length!=0){
+		for (let i = 0; i < article.lenses.length; i++) {
+			if (i==0) {
+			option = article.lenses [i];
+			}
+		}
+		
+	}
+
 	// on met à jour le nombre d'article dans le panier
 	nombreArticle();
 
@@ -66,6 +79,7 @@ function displayArticle(article) {
 				<p class="policeParagraphe2">
 				${article.description}
 				</p>
+				<h3 hidden id="option">${option}</h3>
 			</div>
 	  		<div class="actionArticle">
 				<div class="prixArticle">
@@ -73,7 +87,7 @@ function displayArticle(article) {
 					</p>
 				</div>
 				<div class="buttonArticle">
-					<button type="button" class="buttonAjoutArticle" id="boutonAjoutArticle" value ="${article._id}" onclick="ajoutPanier();">
+					<button type="button" class="buttonAjoutArticle" id="boutonAjoutArticle" value ="${article._id}" onclick="recupSelected('${option}');ajoutPanier();">
 						<i class="fas fa-shopping-basket"></i>
 						Ajouter au panier
 					</button>

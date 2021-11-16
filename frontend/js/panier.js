@@ -1,4 +1,4 @@
-// Version V.3 Version finale
+// Version V.4.1 Version finale - Correction suite à soutenance
 
 //Variable globale
 var option = "vide";
@@ -16,6 +16,7 @@ async function ajoutPanier() {
             
                 let idArticlePanier = articleId;
                 let nombreArticlePanier = 1;
+
                 // creation d'une variable globale contenant les informations de l'article ou produit choisi
                 const articlePanier = {idArticlePanier,option,nombreArticlePanier};
 
@@ -30,21 +31,21 @@ async function ajoutPanier() {
                 
                 if (articleEnregistreLocalStorage) {
                     let articleExiste = false;
-                    // On verifie si l'id de l'article existe déjà sinon on met à jour le nombre d'article
+                    // On verifie si l'id de l'article existe déjà sinon on met à jour le nombre d'article et Option
                     for (let i = 0; i < articleEnregistreLocalStorage.length; i++) { 
-                        if (articleEnregistreLocalStorage[i].idArticlePanier === idArticlePanier) {
-                            // l'article existe on met à jour le nombre
-                            articleExiste = true;
-                            // on teste le nombre d'articles par article , blocage à 5
-                            if (articleEnregistreLocalStorage[i].nombreArticlePanier < 5) {
+                                if (articleEnregistreLocalStorage[i].idArticlePanier === idArticlePanier && articleEnregistreLocalStorage[i].option == option) {
+                                    // l'article existe on met à jour le nombre
+                                    articleExiste = true;
+                                    // on teste le nombre d'articles par article , blocage à 5
+                                    if (articleEnregistreLocalStorage[i].nombreArticlePanier < 5) {
 
-                                articleEnregistreLocalStorage[i].nombreArticlePanier = articleEnregistreLocalStorage[i].nombreArticlePanier + nombreArticlePanier;
-                                // on sort on a trouvé l'article
-                                break;
-                            }
-                            alert ("Vous ne pouvez pas rajouter plus de 5 articles du même article")
-                            break;
-                        }
+                                        articleEnregistreLocalStorage[i].nombreArticlePanier = articleEnregistreLocalStorage[i].nombreArticlePanier + nombreArticlePanier;
+                                        // on sort on a trouvé l'article
+                                        break;
+                                    }
+                                    alert ("Vous ne pouvez pas rajouter plus de 5 articles du même article")
+                                    break;
+                                }
 
                     }    
 

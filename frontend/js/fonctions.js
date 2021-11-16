@@ -1,4 +1,4 @@
-// Version V.3 Version finale
+// Version V.4.1 Version finale - Correction suite à soutenance
  
  //Déclaration des variables de référence constante globales
 const url = `https://oc-orinoco-projet5.herokuapp.com/api/cameras`;
@@ -26,7 +26,7 @@ function nombreArticle() {
 	if (articleEnPanierStocke) {
         // mise à jour du nombre d'article dans le panier
 		for (let i = 0; i < articleEnPanierStocke.length; i++) {
-			// voir pour le calculc total
+			// voir pour le calcul total
 			nombreArticleTotalPanier = articleEnPanierStocke [i].nombreArticlePanier + nombreArticleTotalPanier;       
         }
 
